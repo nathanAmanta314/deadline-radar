@@ -1,0 +1,32 @@
+{
+  "name": "deadline-radar",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --configLoader runner",
+    "build": "tsc -b && vite build --configLoader runner",
+    "preview": "vite preview --host 127.0.0.1 --configLoader runner",
+    "test": "vitest run --configLoader runner",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "@fontsource-variable/dm-sans": "^5.3.0",
+    "dexie": "^4.0.11",
+    "lucide-react": "^0.468.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.51.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^5.2.0",
+    "fake-indexeddb": "^6.0.0",
+    "typescript": "~5.8.3",
+    "vite": "^8.3.2",
+    "vite-plugin-pwa": "^1.0.0",
+    "vitest": "^4.1.11"
+  }
+}

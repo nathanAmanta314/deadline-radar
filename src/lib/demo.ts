@@ -1,0 +1,66 @@
+import type { Deadline } from "../types";
+import { quickDate } from "../utils/dates";
+export function demoDeadlines(): Deadline[] {
+  return [
+    {
+      title: "Submit Portfolio",
+      description: "Finish the case study layouts and send the portfolio link.",
+      days: 1,
+      progress: 75,
+      priority: "high",
+      category: "portfolio",
+      color: "#c76185",
+    },
+    {
+      title: "Client Revision",
+      description: "Review the latest feedback and send the second round.",
+      days: 3,
+      progress: 30,
+      priority: "urgent",
+      category: "freelance",
+      color: "#278577",
+    },
+    {
+      title: "Learn React",
+      description: "Work through hooks and finish the practice project.",
+      days: 14,
+      progress: 40,
+      priority: "medium",
+      category: "study",
+      color: "#8b65bf",
+    },
+    {
+      title: "Update CV",
+      description: "Add recent work, check the links, and export a fresh PDF.",
+      days: 0,
+      progress: 90,
+      priority: "high",
+      category: "work",
+      color: "#3978bc",
+    },
+    {
+      title: "Old Invoice",
+      description: "Check the outstanding invoice and follow up on payment.",
+      days: -2,
+      progress: 50,
+      priority: "urgent",
+      category: "work",
+      color: "#3978bc",
+    },
+  ].map((d) => ({
+    id: crypto.randomUUID(),
+    title: d.title,
+    description: d.description,
+    deadlineDate: new Date(`${quickDate(d.days)}T23:59`).toISOString(),
+    startDate: new Date(`${quickDate(-10)}T09:00`).toISOString(),
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+    status: "active",
+    progress: d.progress,
+    priority: d.priority as Deadline["priority"],
+    category: d.category,
+    color: d.color,
+    completedAt: null,
+    archived: false,
+  }));
+}
